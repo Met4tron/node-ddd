@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "lint": "npx eslint --ext .js, .ts .",
-    "test": "jest",
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand --no-cache",
+    "test:staged": "yarn test -- --findRelatedTests",
     "jest:clear-cache": "jest --clearCache"
   },
   "husky": {
@@ -17,7 +18,7 @@
   "lint-staged": {
     "*.ts": [
       "eslint 'src/**' --fix",
-      "yarn test"
+      "yarn test:staged"
     ]
   },
   "devDependencies": {
